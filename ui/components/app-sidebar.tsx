@@ -191,6 +191,7 @@
 
 "use client"
 
+import Link from "next/link"
 import { useState, useEffect } from "react"
 import { usePathname } from "next/navigation"
 import {
@@ -405,16 +406,21 @@ export function AppSidebar() {
                                         : "hover:bg-gray-200 dark:hover:bg-gray-800"
                                     }
                                   >
-                                    <a href={subItem.url}>
+                                    <Link href={subItem.url} className="flex items-center gap-2">
                                       <subItem.icon className="size-4" />
                                       <span>{subItem.title}</span>
-                                    </a>
+                                    </Link>
                                   </SidebarMenuSubButton>
                                 </SidebarMenuSubItem>
                               )
                             })}
                           </SidebarMenuSub>
                         </CollapsibleContent>
+                      )}
+
+                      {/* Top-level menu click if no children */}
+                      {!item.items && (
+                        <Link href={item.url} className="absolute inset-0" />
                       )}
                     </SidebarMenuItem>
                   </Collapsible>
@@ -431,3 +437,4 @@ export function AppSidebar() {
     </Sidebar>
   )
 }
+
