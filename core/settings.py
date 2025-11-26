@@ -90,7 +90,7 @@ DATABASES = {
         'USER': os.environ.get('DB_USER', 'postgres'),
         'PASSWORD': os.environ.get('DB_PASS', 'admin'),
         'HOST': os.environ.get('DB_HOST', 'localhost'),
-        'PORT': os.environ.get('DB_PORT', '5430'),
+        'PORT': os.environ.get('DB_PORT', '5432'),
         'OPTIONS': {
             # 'options': '-c search_path=accounting'
             'options': '-c search_path=lookup,membership,assets,accounting,public'

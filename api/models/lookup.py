@@ -15,8 +15,10 @@ class Region(models.Model):
     name_lang2 = models.CharField(max_length=150, blank=True, null=True)
 
     class Meta:
-        managed = False
+        # managed = False
         db_table = 'region'
+        ordering = ['-id']
+        
 
 class Branch(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
@@ -33,8 +35,9 @@ class Branch(models.Model):
     date_created = models.DateField(blank=True, null=True)
 
     class Meta:
-        managed = False
+        # managed = False
         db_table = 'branch'
+        ordering = ['-id']
 
 
 class BranchCell(models.Model):
@@ -46,9 +49,10 @@ class BranchCell(models.Model):
     name_lang1 = models.CharField(max_length=150)
 
     class Meta:
-        managed = False
+        # managed = False
         db_table = 'branch_cell'
         unique_together = (('branch', 'cell_id'),)
+        ordering = ['-id']
 
 
     def save(self, *args, **kwargs):
@@ -82,8 +86,9 @@ class DefaultInfo(models.Model):
     show_details = models.BooleanField()
 
     class Meta:
-        managed = False
+        # managed = False
         db_table = 'default_info'
+        ordering = ['-id']
 
 
 class Denomination(models.Model):
@@ -94,8 +99,9 @@ class Denomination(models.Model):
     is_christian = models.BooleanField(blank=True, null=True)
 
     class Meta:
-        managed = False
+        # managed = False
         db_table = 'denomination'
+        ordering = ['-id']
 
 
 class Department(models.Model):
@@ -106,8 +112,9 @@ class Department(models.Model):
     leadership_type = models.CharField(max_length=20, blank=True, null=True)
 
     class Meta:
-        managed = False
+        # managed = False
         db_table = 'department'
+        ordering = ['-id']
 
 
 class EducationLevel(models.Model):
@@ -117,8 +124,9 @@ class EducationLevel(models.Model):
     name_lang2 = models.CharField(max_length=50)
 
     class Meta:
-        managed = False
+        # managed = False
         db_table = 'education_level'
+        ordering = ['-id']
 
 
 class HousingStatus(models.Model):
@@ -127,8 +135,9 @@ class HousingStatus(models.Model):
     name_lang2 = models.CharField(max_length=50)
 
     class Meta:
-        managed = False
+        # managed = False
         db_table = 'housing_status'
+        ordering = ['-id']
 
 
 class Institution(models.Model):
@@ -138,8 +147,9 @@ class Institution(models.Model):
     name_lang2 = models.CharField(max_length=200, blank=True, null=True)
 
     class Meta:
-        managed = False
+        # managed = False
         db_table = 'institution'
+        ordering = ['-id']
 
 
 class LeadershipRole(models.Model):
@@ -148,8 +158,9 @@ class LeadershipRole(models.Model):
     name_lang2 = models.CharField(max_length=50)
 
     class Meta:
-        managed = False
+        # managed = False
         db_table = 'leadership_role'
+        ordering = ['-id']
 
 
 class MaritalStatus(models.Model):
@@ -158,8 +169,9 @@ class MaritalStatus(models.Model):
     name_lang2 = models.CharField(max_length=50)
 
     class Meta:
-        managed = False
+        # managed = False
         db_table = 'marital_status'
+        ordering = ['-id']
 
 
 class MembershipLevel(models.Model):
@@ -168,8 +180,9 @@ class MembershipLevel(models.Model):
     name_lang2 = models.CharField(max_length=50, blank=True, null=True)
 
     class Meta:
-        managed = False
+        # managed = False
         db_table = 'membership_level'
+        ordering = ['-id']
 
 
 class Ministry(models.Model):
@@ -178,8 +191,9 @@ class Ministry(models.Model):
     name_lang2 = models.CharField(max_length=100, blank=True, null=True)
 
     class Meta:
-        managed = False
+        # managed = False
         db_table = 'ministry'
+        ordering = ['-id']
 
 
 class OccupationType(models.Model):
@@ -188,8 +202,9 @@ class OccupationType(models.Model):
     name_lang2 = models.CharField(max_length=50)
 
     class Meta:
-        managed = False
+        # managed = False
         db_table = 'occupation_type'
+        ordering = ['-id']
 
 
 class Position(models.Model):
@@ -198,8 +213,9 @@ class Position(models.Model):
     name_lang2 = models.CharField(max_length=200, blank=True, null=True)
 
     class Meta:
-        managed = False
+        # managed = False
         db_table = 'position'
+        ordering = ['-id']
 
 
 class Religion(models.Model):
@@ -209,8 +225,9 @@ class Religion(models.Model):
     name_lang2 = models.CharField(max_length=150, blank=True, null=True)
 
     class Meta:
-        managed = False
+        # managed = False
         db_table = 'religion'
+        ordering = ['-id']
 
 
 class Skill(models.Model):
@@ -219,8 +236,9 @@ class Skill(models.Model):
     name_lang2 = models.CharField(max_length=100, blank=True, null=True)
 
     class Meta:
-        managed = False
+        # managed = False
         db_table = 'skill'
+        ordering = ['-id']
 
 
 
@@ -233,5 +251,6 @@ class Currency(models.Model):
     updated_at = models.DateTimeField(blank=True, null=True)
 
     class Meta:
-        managed = False
+        # managed = False
         db_table = 'currency'
+        ordering = ['-currency_ref']
